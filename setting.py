@@ -7,4 +7,4 @@ load_dotenv(verbose=True)
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-DISCORDTOKEN = os.environ.get("DISCORDTOKEN")
+DTOKEN = os.environ.get("DISCORD_TOKEN")

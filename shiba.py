@@ -305,4 +305,5 @@ def rank(players,what):
             rank[playerid] = [c.name, player[1]]
     return "{}ランキング\n{}".format(what,"\n".join("{}位：{} ({}{})".format(i + 1, a[0], a[1],what) for i, a in enumerate(rank.values())))
 
-client.run(setting.DISCORDTOKEN) #トークン
+TOKEN = setting.DTOKEN
+client.run(TOKEN) #トークン
