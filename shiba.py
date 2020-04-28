@@ -6,6 +6,7 @@ import numpy as np
 import setting
 
 client = commands.Bot(command_prefix='.')
+token = os.environ['DISCORD_BOT_TOKEN']
 
 w = t = m = pn = multi = 0
 shp = php = 200
@@ -305,5 +306,4 @@ def rank(players,what):
             rank[playerid] = [c.name, player[1]]
     return "{}ランキング\n{}".format(what,"\n".join("{}位：{} ({}{})".format(i + 1, a[0], a[1],what) for i, a in enumerate(rank.values())))
 
-TOKEN = setting.DTOKEN
-client.run(TOKEN) #トークン
+client.run(token) #トークン
