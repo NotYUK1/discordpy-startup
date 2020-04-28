@@ -3,7 +3,7 @@ from discord.ext import commands
 import random
 import sqlite3
 import numpy as np
-import json
+import setting
 
 client = commands.Bot(command_prefix='.')
 
@@ -305,6 +305,4 @@ def rank(players,what):
             rank[playerid] = [c.name, player[1]]
     return "{}ランキング\n{}".format(what,"\n".join("{}位：{} ({}{})".format(i + 1, a[0], a[1],what) for i, a in enumerate(rank.values())))
 
-f = open('stoken.json','r')
-setting = json.load(f)
-client.run(setting['token']) #トークン
+client.run(setting.DISCORDTOKEN) #トークン
