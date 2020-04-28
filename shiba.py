@@ -4,6 +4,7 @@ import random
 import sqlite3
 import numpy as np
 import setting
+import os
 
 client = commands.Bot(command_prefix='.')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -23,13 +24,6 @@ ns_word = ['\n相打ちだな','\n相打ちだな','\n相打ちだな']
 w_list = ['師匠，お願いします！\nT2「やっちゃいますかー」','TRさん，やりましょう\nTR「は？！」','やるか']
 
 pattern = ['🍒','🔵','🍉','🔔','🥺','💩']
-
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
 
 @client.command()
 async def shelp(ctx):
@@ -306,4 +300,5 @@ def rank(players,what):
             rank[playerid] = [c.name, player[1]]
     return "{}ランキング\n{}".format(what,"\n".join("{}位：{} ({}{})".format(i + 1, a[0], a[1],what) for i, a in enumerate(rank.values())))
 
-client.run(token) #トークン
+client.run(token)
+#トークン
