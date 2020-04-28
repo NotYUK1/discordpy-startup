@@ -5,6 +5,7 @@ import sqlite3
 import numpy as np
 import setting
 import os
+import traceback
 
 client = commands.Bot(command_prefix='.')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -24,6 +25,12 @@ ns_word = ['\n相打ちだな','\n相打ちだな','\n相打ちだな']
 w_list = ['師匠，お願いします！\nT2「やっちゃいますかー」','TRさん，やりましょう\nTR「は？！」','やるか']
 
 pattern = ['🍒','🔵','🍉','🔔','🥺','💩']
+
+@clien.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
 
 @client.command()
 async def shelp(ctx):
@@ -301,4 +308,3 @@ def rank(players,what):
     return "{}ランキング\n{}".format(what,"\n".join("{}位：{} ({}{})".format(i + 1, a[0], a[1],what) for i, a in enumerate(rank.values())))
 
 client.run(token)
-#トークン
