@@ -1,1 +1,1 @@
-discordbot: python shiba.py
+discordbot: python discordbot.py
